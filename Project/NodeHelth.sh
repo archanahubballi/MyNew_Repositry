@@ -1,7 +1,7 @@
  #!/bin/bash
 
  ######################
- # Author: Archana
+ # Author: Archana Hubballi
  # Date: 09-12-2023
  # This scripts outputs the node health
  # version: v1
