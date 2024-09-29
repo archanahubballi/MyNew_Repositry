@@ -8,7 +8,6 @@ WORKDIR /app
 COPY . /app
 
 # Install any dependencies specified in requirements.txt
-# Ensure requirements.txt contains necessary packages
 RUN pip install --no-cache-dir -r requirements.txt  # Remove this line if no dependencies are needed
 
 # Make port 80 available to the world outside this container
