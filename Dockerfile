@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt  # Remove this line if no dependencies are needed
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
@@ -17,4 +17,4 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]  # Modify this if you need to pass arguments
+CMD ["python", "app.py"]
