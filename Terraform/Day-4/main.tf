@@ -18,7 +18,7 @@ resource "aws_subnet" "public_subnet_a" {
 
 resource "aws_subnet" "public_subnet_b" {
   vpc_id = aws_vpc.demo_vpc.id
-  cidr_block = "101.0.2.0/24"
+  cidr_block = "10.0.2.0/24"
   availability_zone = "us-west-2b"
   map_public_ip_on_launch = true
 }
@@ -51,8 +51,8 @@ resource "aws_nat_gateway" "nat_gw_a" {
 }
 
 resource "aws_nat_gateway" "nat_gw_b" {
-  allocation_id = aws_eip.nat_eip_b
-  subnet_id = aws_subnet.public_subnet_b
+  allocation_id = aws_eip.nat_eip_b.id
+  subnet_id = aws_subnet.public_subnet_b.id
 }
 
 # Route tables for Public and Private Subenets
@@ -71,7 +71,7 @@ resource "aws_route_table_association" "aws_rt_assoc_a" {
 }
 
 resource "aws_route_table_association" "aws_rt_assoc_b" {
-  subnet_id = aws_subnet.public_subnet_b
+  subnet_id = aws_subnet.public_subnet_b.id
   route_table_id = aws_route_table.public_rt.id
 }
 
@@ -91,7 +91,7 @@ resource "aws_route_table" "aws_private_rt_b" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat_gw_b
+    nat_gateway_id = aws_nat_gateway.nat_gw_b.id
   }
 }
 
